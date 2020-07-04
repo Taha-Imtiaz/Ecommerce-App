@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-family: 'Cairo', sans-serif; */
+  }
+  body {
+    overflow-x: hidden;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  :root {
+    --modal-duration: 1s;
+    --modal-color: #343a40;
+  }
+  .container {
+    display: grid;
+    grid-template-rows: 20vh 60vh 20vh;
+    grid-template-columns: minmax(0rem, 1fr) minmax(min-content, 120rem) minmax(0rem, 1fr);
+    grid-template-areas: ". . . "
+                        ". modal . "
+                        ". . .";
+    background-color: rgb(46, 44, 44);
+    font-family: "Cairo", sans-serif;
+  
+  }
+  
+  .modal{
+      grid-area: modal;
+     
+      transition: background 1s ease-in-out;
+      
+  }
+  .modal-content {
+   
+    background-color: #343a40;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+  }
+   
+  
+  .modal-header h2
+   {
+    margin: 0;
+  }
+  
+  .modal-header {
+    background: var(--modal-color);
+    padding: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  
+  .modal-body {
+    padding: 10px 20px;
+    background: #fff;
+  }
+  
+  @keyframes modalopen {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .prevPic{
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      transform: translateY(2.5rem);
+      padding: 1rem;
+  }
+  form {
+    display: grid;
+    grid-template-rows: repeat(minmax(min-content, 55rem));
+  
+    font-size: 1.5rem;
+    /* transition: all 1000ms ease-in-out; */
+    
+  }
+  form .inputbox{
+    position: relative;
+    margin: 1rem;
+  }
+  form label {
+    color: #343a40;
+    display: block;
+    
+  }
+ 
+  form input {
+    /* display: block; */
+    outline: none;
+    width: 30rem;
+    height: 3rem;
+    border-bottom: 1.5px solid  #343a40;
+    border-radius: 0.2rem;
+    font-family: "Cairo", sans-serif;
+    /* padding: 0 0.5rem; */
+   
+  }
+  form input:focus ~label,form input:valid~label, form textarea:focus ~label,form textarea:valid~label{
+    top: -2rem;
+    left: 0;
+  
+  }
+  
+ .inputbox label{
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    /* margin: 1rem 0; */
+  }
+  form input[type="file"]  {
+   border: none;
+   outline: none;
+  }
+  input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+  form textarea{
+    outline: none;
+    border-bottom: 1.5px solid #343a40;
+    border-radius: 0.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    /* padding: 0 1rem; */
+    /* margin: 1.5rem; */
+  }
+ 
+  
+  form p {
+   padding: 0.2rem 1rem;
+    width: 10rem;
+    height: 2.5rem;
+    margin: 1rem;
+   text-transform: capitalize;
+    outline: none;
+    font-family:   'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* border: 1.5px solid rgba(0, 0, 0, 0.884); */
+    border-radius: 0.3rem;
+    background-color: #343a40;
+    color: white;
+  }
+  @media only screen and (max-width:1150px){
+    html{
+        font-size: 60%;
+    }
+}
+@media only screen and (max-width:800px){
+    html{
+        font-size: 53%;
+    }
+}
+@media only screen and (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+    .modal-content{
+        margin:  0.5rem;
+        }
+        .prevPic{
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+        
+  }
+ 

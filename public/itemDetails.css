@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Cairo", sans-serif;
+    
+  }
+  body {
+    overflow-x: hidden;
+    
+  }
+  html {
+    font-size: 62.5%;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container{
+      display: grid;
+     grid-template-rows: 90vh 10vh ;
+    grid-template-columns: minmax(5rem, 1fr) minmax(min-content,120rem) minmax(5rem, 1fr);
+     grid-template-areas: "content content content"
+                           "backPage backPage backPage"      ;
+     background: linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,1));
+
+  }
+  .content{
+      grid-area: content;
+      display: grid;
+      grid-template-rows: 60vh 10vh 10vh 10vh ;
+      grid-template-columns: 100fr;
+      grid-template-areas: "itemimage"
+                             "itemtitle"
+                             "itemdescription"
+                             "itemprice";
+    color: white;
+    
+  }
+  .content p{
+      font-size: 1.4rem;
+  }
+.itemimage img{
+      grid-area: itemimage;
+      /* width: 60vw; */
+        height: 60vh;
+   }
+  .itemtitle{
+      grid-area: itemtitle;
+      text-transform: capitalize;
+      
+  }
+  .itemdescription{
+      grid-area: itemdescription;
+      text-transform: capitalize;
+     
+  }
+  .itemprice{
+      grid-area: itemprice;
+     
+  }
+ 
+  .backPage{
+      grid-area: backPage;
+      color: white;
+  }
+  .backPage h2{
+      background-color: #007bff;
+      padding: 1rem 3rem;
+  }
+ .backPage h2:hover{
+      border: 2px solid white;
+      
+  }
+  @media only screen and (max-width:620px){
+    .itemimage img{
+        width: 95vw;
+        height: 50vh;
+      
+    }
+
+  }
+  @media only screen and (max-width:420px){
+    .itemimage img{
+        width: 90vw;
+        height: 40vh;
+      
+    }
+    .content p{
+        font-size: 1.2rem;
+    }
+  }
+  
+  

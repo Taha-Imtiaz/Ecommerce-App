@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+       <!-- Buttons -->
+        <div class="loginbuttons">
+            <h1 class="signup">Sign Up</h1>
+            <!-- Sign Up Modal -->
+            <div id="my-modal" class="modal">
+              <div class="modal-content">
+                <div class="modal-header ">
+                  <span class="close">&times;</span>
+                  <h2 class="flex">Sign Up</h2>
+                </div>
+                <div class="modal-body">
+                  
+                  <form  class="signupform" onsubmit=  "return signUpValidation()">  
+                   <div class="inputbox">
+                     
+                      <input type="text" name="" class="user"  autocomplete="off" required>
+                      <label for="">Username</label>
+                      <span class="username"></span>
+                    </div>
+                   
+                   <div class="inputbox">
+                      
+                        <input type="password" name="pass" class="pass"  autocomplete="off" required>
+                        <label for="">Password</label>
+                        <span class="password"></span>
+                    </div>
+    
+                   <div class="inputbox">
+                     
+                      <input type="password" name="cpass" class="cpass"  autocomplete="off" required>
+                      <label for=""> Confirm Password</label>
+                      <span class="cpassword" ></span>
+                    </div>
+    
+                   <div class="inputbox">
+                    
+                    <input type="text" name="email" class="email"  autocomplete="off" required>
+                    <label for="">Email</label>
+                    <span class="emailId"></span>
+                    </div>
+
+                  
+
+                  <div class="flex">
+                   <button type="submit">Submit</button></div>
+                </form> 
+
+                </div>
+               
+              </div>
+            </div>
+             
+          <!-- Log in Modal -->
+            <h1 class="login">Log in</h1>
+            <div id="my-modal" class="loginmodal flex">
+            <div class="modal-content">
+              <div class="modal-header ">
+              <span class="close">&times;</span>
+                <h2 class="flex">Login</h2>
+                </div>
+                <div class="modal-body">
+                  
+                  <form class="loginform"  onsubmit= "return loginValidation()">
+                   <div class="inputbox">
+                   <i class="fa fa-envelope-o"></i>
+                      <input type="text" name="email" class="loginemail"  autocomplete="off" required>
+                      <label for="">Email</label>
+                      <span class="loginemailId"></span>
+                  </div>
+
+                 <div class="inputbox">
+                  <i class="fa fa-key"></i>
+                    <input type="password" name="pass" class="loginpass"  autocomplete="off" required>
+                    <label for="">Password</label>
+                    <span onclick="showHidePassword()">
+                    <i class="fa fa-eye" id="hide1"></i>
+                    <i class="fa fa-eye-slash" id="hide2"></i>
+                  </span>
+                    <span class="loginpassword"></span>
+                  
+                </div>
+                <div class="centercontent">
+                  <button class="forgetps">Forgot Password?</button>
+                 
+                </div>
+                <div class="flex">
+               <button type="submit" >Submit</button>
+              </div>
+              </form> 
+
+              </div>
+
+             
+            </div>
+          </div>
+
+            <h1 class="googlelogin">Google Sign in</h1>
+
+
+            <h1 class="signinwithphone">SignIn With Mobile</h1>
+
+            <div id="my-modal" class="phonesignin flex">
+              <div class="modal-content">
+                <div class="modal-header ">
+                <span class="close">&times;</span>
+                  <h2 class="flex">Modal Header</h2>
+                  </div>
+                  <div class="modal-body">
+                    
+                    <form class="phoneauth"  onsubmit= "return phoneValidation()">
+                      <div class="inputbox">
+                       
+                        <input type="text" name="phone" class="phone"  autocomplete="off" required>
+                        <label for="">Phone Number</label>
+                        <span class="phoneId"></span>
+                      
+                    </div>
+  
+                     <div id="captcha" class="flex"></div>
+                  <div class="flex">
+                 <button class="sendcode" type="submit">Send Code</button>
+                </div>
+                
+                  <div class="inputbox">
+                  
+                   <input type="text" name="" class="verificationcode flex">
+                   <label for="" class="verify">Enter Verification Code</label>
+                </div>
+                <div class="inputbox flex">
+                  <button onclick="codeVerify()">Verify Code</button></div>
+                </form>
+                </div>
+            
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+  
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBuXkpjkqe740HorCotD3jILnEA1Gcmboo",
+    authDomain: "ecommerce-app-a1110.firebaseapp.com",
+    databaseURL: "https://ecommerce-app-a1110.firebaseio.com",
+    projectId: "ecommerce-app-a1110",
+    storageBucket: "ecommerce-app-a1110.appspot.com",
+    messagingSenderId: "1038093875841",
+    appId: "1:1038093875841:web:64aec41c26f22f7bc36b80"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
+<script src="formvalidation.js"></script>
+<script src="login.js"></script>
+
+</body>
+</html>

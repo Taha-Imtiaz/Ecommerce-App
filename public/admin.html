@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+ 
+
+ <div class="container">
+   <div class="bgimage">
+    <div class="addbtn flex"> 
+      <h1>Add</h1>
+      <div id="my-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header ">
+            <span class="close">&times;</span>
+            <h2 class="flex">Add Item</h2>
+          </div>
+          <div class="modal-body">
+            
+            <form  class="addform" onsubmit=  "return addProducts()">  
+              
+              <div class="inputbox">
+                 
+                  <input type="text" name="title" class="title"  autocomplete="off" required>
+                  <label for="">Title</label>
+                  <span class="titlename"></span>
+              </div>
+
+              <div class="inputbox">
+               
+               <textarea class="des"  cols="30" rows="3" required></textarea>
+               <label for=""> Description</label>
+               <span class="Description" ></span>
+              </div>
+
+              <div class="inputbox">
+               
+               <input type="date" name="" class="date" required>
+               <label for="">Date</label>
+                <!-- <div class="square"></div> -->
+            
+              </div>
+
+              <div class="inputbox">
+               
+                <input type="tel" name="price" class="price"   autocomplete="off" required>
+                <label for="">Price</label>
+                <span class="priceId"></span>
+              </div>
+
+              <div class="inputbox">
+                 
+                <input type="number" name="quantity" class="quantity"  autocomplete="off" required>
+                <label for="">Quantity</label>
+                <span class="quantityname"></span>
+            </div>
+            
+              <div class="flex">
+                <label for="">Product Image
+                <input type="file" id="imageFile" class="image" accept=".png, .jpg, .jpeg" required>
+                <!-- <div class="square"></div> -->
+              </label>
+              </div>
+
+           
+            <div class="flex">
+             <button class="submit" type="submit">SUBMIT</button></div>
+          </form> 
+
+          </div>
+          
+        </div>
+      </div>
+      </div>
+  
+   <div class="items flex"></div>
+   <div class="icon same">
+   <i class="material-icons flex" onclick="seeAllItems()">loupe</i>
+  </div>
+ </div>
+ </div>
+ <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+
+  
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBuXkpjkqe740HorCotD3jILnEA1Gcmboo",
+    authDomain: "ecommerce-app-a1110.firebaseapp.com",
+    databaseURL: "https://ecommerce-app-a1110.firebaseio.com",
+    projectId: "ecommerce-app-a1110",
+    storageBucket: "ecommerce-app-a1110.appspot.com",
+    messagingSenderId: "1038093875841",
+    appId: "1:1038093875841:web:64aec41c26f22f7bc36b80"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
+<script src="addProductForm.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

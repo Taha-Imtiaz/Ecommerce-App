@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="itemDetails.css">
+</head>
+<body>
+    <div class="container ">
+        <div class="content flex">
+        </div>
+        <div class="add-cart flex">
+            <h2>Add to Cart</h2>
+        </div>
+        <div class="backPage flex">
+            <h2>Go to Back Page</h2>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+
+  
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBuXkpjkqe740HorCotD3jILnEA1Gcmboo",
+    authDomain: "ecommerce-app-a1110.firebaseapp.com",
+    databaseURL: "https://ecommerce-app-a1110.firebaseio.com",
+    projectId: "ecommerce-app-a1110",
+    storageBucket: "ecommerce-app-a1110.appspot.com",
+    messagingSenderId: "1038093875841",
+    appId: "1:1038093875841:web:64aec41c26f22f7bc36b80"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
+    <script src="itemDetails.js"></script>
+</body>
+</html>

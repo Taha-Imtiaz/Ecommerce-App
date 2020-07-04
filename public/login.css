@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-family: 'Cairo', sans-serif; */
+  }
+  body {
+    overflow-x: hidden;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .centercontent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+  }
+  .same {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transform: translate3d(1rem, -2rem, 0);
+  }
+  .container {
+    display: grid;
+    grid-template-rows: 100vh;
+    grid-template-columns: minmax(0rem, 1fr) minmax(minmax(min-content, 118rem)) minmax(0rem, 1fr);
+    grid-template-areas: " . loginbtns .";
+    background-image: url("bg7.jpg");
+    font-family: "Cairo", sans-serif;
+    transition: background 300ms ease-in;
+  }
+  
+  .loginbuttons {
+    display: grid;
+    grid-template-rows: 30vh repeat(4, 15vh) 10vh;
+    grid-template-columns: minmax(0rem, 1fr) minmax(min-content, 118rem) minmax( 0rem,1fr);
+    grid-area: loginbtns;
+    /* background-color:rgb(71, 65, 65); */
+    grid-template-areas: ". . ."
+                        ". signup ."
+                        ". Login ."
+                        ". GoogleSignIn ."
+                         ". signinwithphone ."
+                          ". . .";
+  }
+  .signup {
+    grid-area: signup;
+  }
+  .loginbuttons h1 {
+    /* border: 2px solid rgb(204, 187, 187); */
+    color: rgb(255, 255, 255);
+    background-color: #007bff;
+    padding: 0.5rem 5rem;
+    justify-self: center;
+    align-self: center;
+    border-radius: 0.4rem;
+    font-weight: normal;
+    
+  }
+  
+  .loginbuttons h1:hover {
+   
+    border: 2px solid #343a40;
+    transition: all 1000ms ease-in-out;
+  }
+  :root {
+    --modal-duration: 1s;
+    --modal-color:  #343a40;
+  }
+  
+  .modal,
+  .loginmodal,.phonesignin {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    transition: background 1s ease-in-out;
+
+  }
+  
+  .modal-content {
+    margin: 10% auto;
+    /* width: 60%;
+    height: 55%; */
+    /* box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17); */
+    background-color: #343a40;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+  }
+   
+  .modal-header h2
+  {
+    margin: 0;
+  }
+  
+  .modal-header {
+    background: var(--modal-color);
+    padding: 15px;
+    text-transform: uppercase;
+    font-family: serif;
+    font-size: 1.6rem;
+    color: #fff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  
+  .modal-body {
+    padding: 10px 20px;
+    background: #fff;
+  }
+  
+  .close {
+    color: #ccc;
+    float: right;
+    transform: translateY(-1.5rem);
+    font-size: 25px;
+    color: #fff;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color:   #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  @keyframes modalopen {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  form {
+    display: grid;
+    grid-template-rows: repeat(minmax(min-content, 55rem));
+  
+    font-size: 1.5rem;
+    /* transition: all 1000ms ease-in-out; */
+    
+  }
+  form .inputbox{
+    position: relative;
+    margin: 1rem;
+  }
+  form label {
+    color: #343a40;
+    display: block;
+    
+  }
+  form span{
+    margin: 0;
+    font-size: 1.1rem;
+    transform: translateY(1rem);
+    transition: all 100ms ease-in-out;
+    display: inline-block
+  }
+  form input {
+    /* display: block; */
+    outline: none;
+    width: 30rem;
+    height: 3rem;
+    border-bottom: 1.5px solid  #343a40;
+    border-radius: 0.2rem;
+    font-family: "Cairo", sans-serif;
+    /* padding: 0 0.5rem; */
+   
+  }
+  form input:focus ~label,form input:valid~label {
+    top: -2rem;
+    left: 0;
+  
+  }
+  
+ .inputbox label{
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    /* margin: 1rem 0; */
+  }
+  .username,
+  .password,
+  .cpassword,
+  .emailId,
+  .phoneId
+  {
+    color:  #343a40;
+    /* padding: 0.5rem; */
+    
+  }
+  
+  form button {
+    margin: 1rem 1.7rem;
+    width: 15rem;
+    height: 3rem;
+    font-family: "Cairo", sans-serif;
+    font-size: 1.5rem;
+    outline: none;
+    /* border: 1.5px solid rgba(0, 0, 0, 0.884); */
+    border-radius: 0.3rem;
+    background-color:  #343a40;
+    color: white;
+  }
+  
+  .login {
+    grid-area: Login;
+  }
+  .loginform label{
+    margin: 0 2.5rem;
+  }
+  .fa-eye,.fa-eye-slash{
+    margin: 0 0.3rem;
+    
+  }
+  #hide1{
+    display: none;
+  }
+  .googlelogin {
+    grid-area: GoogleSignIn;
+  }
+  .signinwithphone{
+    grid-area: signinwithphone;
+  }
+ .loginbuttons .verify{
+    background-color: white;
+    color: #343a40;
+  }
+  #captcha{
+    margin: 2rem;
+  }
+  
+  
+ 
+  @media only screen and (max-width:1150px){
+      html{
+          font-size: 60%;
+      }
+      form .flex{
+          display: grid;
+          margin: 0 0;
+      }
+      form input{
+        margin: 0 0;
+      }
+  }
+  @media only screen and (max-width:560px){
+    html{
+        font-size: 53%;
+    }
+    .username,
+  .password,
+  .cpassword,
+  .emailId,
+  .phoneId{
+    font-size: 1.5rem;
+  }
+  form button{
+    height: 4rem;
+  }
+  }
+  
+  @media only screen and (max-width:400px){
+    html{
+        font-size: 50%;
+    }
+
+  }
+  @media only screen and (max-width:380px){
+    html{
+        font-size: 45%;
+    }
+.modal-content{
+  width: 95%;
+  margin:  1rem;
+}
+#captcha{
+  width: 78%;
+  /* height: 85%; */
+  margin: 1rem 1.1rem;
+  position: relative;
+  
+}
+form button{
+  width: 18rem;
+  
+}
+.loginform input{
+  width: 28rem;
+}
+.fa-eye,.fa-eye-slash{
+  margin-left: 1rem; 
+  
+}
+}
